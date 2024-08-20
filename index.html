@@ -81,40 +81,7 @@
 				</ul>
 			</div>
 			<!-- B站收藏-->
-			<!-- 云盘资源-->
-			<div class="left-div left-time">
-				<ul id="line">
-					<div class="container">
-						<class="title">《云盘资源上新情报》
-							<hr class="dashed">
-					</div>
-					<div class="ziyuan"></div>
-				</ul>
-			</div>
-			<!-- 云盘资源结束-->
-			<!-- 视频播放 -->
-			<div class="left-div left-time">
-				<ul id="line2">
-					<div class="container">
-						<!-- 视频容器 -->
-						<div id="video-container">
-							<!-- 视频元素 -->
-							<video id="random-video" width="100%" height="auto" controls webkit-playsinline playsinline
-								controlsList="nodownload noremoteplayback">
-								<source src="视频链接" type="video/mp4">
-								您的浏览器不支持视频标签。
-							</video>
-						</div>
-						<!-- 控制按钮 -->
-						<div id="control-buttons">
-							<button onclick="prevVideo()" style="font-size:12px;">⏮</button>
-							<button id="play-pause-btn" onclick="togglePlay()" style="font-size:12px;">▶</button>
-							<button onclick="nextVideo()" style="font-size:12px;">⏭</button>
-						</div>
-					</div>
-				</ul>
-			</div>
-			<!-- 视频播放结束 -->
+
 			<!-- 60秒读懂世界-->
 			<div class="left-div left-time">
 				<ul id="line">
@@ -773,42 +740,7 @@
 													console.error('请求出错:', error);
 												});
 										</script>
-										<script>
-											// 使用 fetch API 请求网盘资源更新 URL
-											fetch('https://www.pan.noisework.cn/api/search')
-												.then(response => response.json())
-												.then(data => {
-													// 检查data是否为null
-													if (data === null) {
-														// 如果data为null，显示默认错误消息
-														const contentDiv = document.querySelector('.ziyuan');
-														const p = document.createElement('p');
-														p.textContent = '请求失败，没有返回有效信息';
-														contentDiv.appendChild(p);
-													} else {
-														// 如果data不是null，检查code字段
-														if (data.code === 200) {
-															// 如果code是200，显示title和url字段的信息
-															const contentDiv = document.querySelector('.ziyuan');
-															data.data.items.forEach(item => {
-																const p = document.createElement('p');
-																p.innerHTML = `<strong>${item.title}</strong> - <a href="${item.url}" target="_blank">链接🔗 </a>`;
-																p.style.margin = '0.2em 0'; // 添加0.2的上下间隔
-																contentDiv.appendChild(p);
-															});
-														} else {
-															// 如果code不是200，显示msg字段的信息
-															const contentDiv = document.querySelector('.ziyuan');
-															const p = document.createElement('p');
-															p.textContent = data.message || '请求失败，没有返回有效信息';
-															contentDiv.appendChild(p);
-														}
-													}
-												})
-												.catch(error => {
-													console.error('请求出错:', error);
-												});
-										</script>
+							
 										<script>
 											function updateClock() {
 												const now = new Date();
@@ -900,8 +832,6 @@
 </body>
 <script src="./static/js/script.js"> </script>
 <script src="./static/js/Meting.min.js"> </script>
-<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
-<script>LA.init({ id: "KFqltKSkJgQTGD9l", ck: "KFqltKSkJgQTGD9l" })</script>
 <script src="./static/js/loading.js"></script>
 
 </html>
